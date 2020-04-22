@@ -55,7 +55,7 @@ export class GithubActionsRunnerStack extends cdk.Stack {
       {
         cluster,
         taskDefinition,
-        platformVersion: FargatePlatformVersion.VERSION1_3,
+        platformVersion: FargatePlatformVersion.VERSION1_4,
       }
     );
   }
