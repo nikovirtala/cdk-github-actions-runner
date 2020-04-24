@@ -1,4 +1,4 @@
-# GitHub Actions runners on AWS Fargate
+# GitHub Actions runner on AWS Fargate
 
 This repository contains an example how to run self-hosted GitHub Actions runners on AWS Fargate!
 
@@ -12,7 +12,9 @@ On top the base image I have installed GitHub Actions Runner based on [About sel
 
 The application is deployed to AWS using [AWS Cloud Development Kit (AWS CDK)](https://docs.aws.amazon.com/cdk/latest/guide/home.html).
 
-- Store two parameters `GITHUB_ACCESS_TOKEN` and `GITHUB_REPOSITORY_URL` in to SSM Parameter Store.
+- Store two parameters `GITHUB_ACCESS_TOKEN` and `GITHUB_ACTIONS_RUNNER_CONTEXT` in to SSM Parameter Store.
+  - For repository level runner set `GITHUB_ACTIONS_RUNNER_CONTEXT` value to `https://github.com/<owner>/<repository>`
+  - For organization level runner set `GITHUB_ACTIONS_RUNNER_CONTEXT` value to `https://github.com/<organization>`
 - Run `cdk synth --profile <your-aws-cli-profile>`
 - Run `cdk deploy --profile <your-aws-cli-profile>`
 - Wait a little while ...
@@ -24,6 +26,16 @@ Now you should be able find your self-hosted runner from repository setting in G
 We can see also from the Fargate Task Logs that the runner is successfully registered:
 
 ![](./fargate-task-logs-in-aws-console.png "Fargate Task Logs in AWS Console")
+
+## Personal Access Token Scopes
+
+Registering self-hosted runner to repository level requires admin access to the repository, and `repo` scope for the access token.
+
+![](./access-token-repo.png "Settings >>> Developer settings >>> Personal access tokens")
+
+Registering self-hosted runner to Organization level requires admin access to the organization, and `admin:org` scope for the access token.
+
+![](./access-token-admin-org.png "Settings >>> Developer settings >>> Personal access tokens")
 
 ## Useful commands
 

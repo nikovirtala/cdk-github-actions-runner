@@ -36,12 +36,12 @@ export class GithubActionsRunnerStack extends cdk.Stack {
             }
           )
         ),
-        REPOSITORY_URL: ecs.Secret.fromSsmParameter(
+        GITHUB_ACTIONS_RUNNER_CONTEXT: ecs.Secret.fromSsmParameter(
           ssm.StringParameter.fromSecureStringParameterAttributes(
             this,
-            "GitHubRepositoryUrl",
+            "GitHubActionsRunnerContext",
             {
-              parameterName: "REPOSITORY_URL",
+              parameterName: "GITHUB_ACTIONS_RUNNER_CONTEXT",
               version: 0,
             }
           )
