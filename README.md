@@ -37,6 +37,10 @@ Registering self-hosted runner to Organization level requires admin access to th
 
 ![](./access-token-admin-org.png "Settings >>> Developer settings >>> Personal access tokens")
 
+## Price Comparision
+
+You can read about the comparisions I made from [Price Comparision](docs/price-comparision.md) document.
+
 ## Useful commands
 
 - `npm run build` compile typescript to js
