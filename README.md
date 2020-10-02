@@ -4,7 +4,7 @@ This repository contains an example how to run self-hosted GitHub Actions runner
 
 ## Docker image
 
-Docker image is based on [`ubuntu:rolling`](https://hub.docker.com/_/ubuntu), which is currently pointed to `19.10` / `eoan`.
+Docker image is based on [`ubuntu:rolling`](https://hub.docker.com/_/ubuntu), which is currently pointed to `20.04` / `focal`.
 
 On top the base image I have installed GitHub Actions Runner based on [About self-hosted runners](https://help.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners) in GitHub documentation.
 
