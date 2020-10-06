@@ -56,6 +56,7 @@ export class GithubActionsRunnerStack extends cdk.Stack {
         cluster,
         taskDefinition,
         platformVersion: FargatePlatformVersion.VERSION1_4,
+        assignPublicIp: true
       }
     );
   }
