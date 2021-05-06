@@ -1,12 +1,13 @@
-import * as cdk from "@aws-cdk/core";
-import * as ec2 from "@aws-cdk/aws-ec2";
-import * as ecs from "@aws-cdk/aws-ecs";
-import * as ssm from "@aws-cdk/aws-ssm";
+import * as cdk from "aws-cdk-lib";
+import * as ec2 from "aws-cdk-lib/aws-ec2";
+import * as ecs from "aws-cdk-lib/aws-ecs";
+import * as ssm from "aws-cdk-lib/aws-ssm";
+import { Construct } from "constructs";
 import path = require("path");
-import { FargatePlatformVersion } from "@aws-cdk/aws-ecs";
+import { FargatePlatformVersion } from "aws-cdk-lib/aws-ecs";
 
 export class GithubActionsRunnerStack extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
     const vpc = new ec2.Vpc(this, "GitHubActionsRunnerVpc", {
@@ -49,14 +50,10 @@ export class GithubActionsRunnerStack extends cdk.Stack {
       },
     });
 
-    const ecsService = new ecs.FargateService(
-      this,
-      "GitHubActionsRunnerService",
-      {
-        cluster,
-        taskDefinition,
-        platformVersion: FargatePlatformVersion.VERSION1_4,
-      }
-    );
+    new ecs.FargateService(this, "GitHubActionsRunnerService", {
+      cluster,
+      taskDefinition,
+      platformVersion: FargatePlatformVersion.VERSION1_4,
+    });
   }
 }
