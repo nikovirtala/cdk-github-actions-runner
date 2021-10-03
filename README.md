@@ -2,6 +2,16 @@
 
 This repository contains an example how to run self-hosted GitHub Actions runners on AWS Fargate!
 
+## Construct
+
+The solution presented in this repository is available as a Construct library in [NPM](https://www.npmjs.com/package/@cloudgardener/cdk-aws-fargate-github-actions-runner) and [GitHub](https://github.com/cloudgardener/cdk-aws-fargate-github-actions-runner).
+
+You can import it to your project by:
+
+```ts
+import { GithubActionsRunner } from "@cloudgardener/cdk-aws-fargate-github-actions-runner";
+```
+
 ## Docker image
 
 Docker image is based on [`ubuntu:rolling`](https://hub.docker.com/_/ubuntu), which is currently pointed to `20.04` / `focal`.
