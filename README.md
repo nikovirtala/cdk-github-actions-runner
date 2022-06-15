@@ -14,7 +14,7 @@ import { GithubActionsRunner } from "@cloudgardener/cdk-aws-fargate-github-actio
 
 ## Docker image
 
-Docker image is based on [`ubuntu:rolling`](https://hub.docker.com/_/ubuntu), which is currently pointed to `20.04` / `focal`.
+Docker image is based on [`ubuntu:20.04`](https://hub.docker.com/_/ubuntu) / `focal`. I may consider moving back to `ubuntu:rolling` once https://github.com/actions/runner/issues/1584 is resolved.
 
 On top the base image I have installed GitHub Actions Runner based on [About self-hosted runners](https://help.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners) in GitHub documentation.
 
